@@ -1,2 +1,8 @@
-FA1.*
-!FA1.tex
+*.aux
+*.nav
+*.pdf
+*.vrb
+*.log
+*.out
+*.snm
+*.toc
