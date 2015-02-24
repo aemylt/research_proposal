@@ -19,61 +19,8 @@
 
 \mode<presentation> {
 
-% The Beamer class comes with a number of default slide themes
-% which change the colors and layouts of slides. Below this is a list
-% of all the themes, uncomment each in turn to see what they look like.
-
-%\usetheme{default}
-%\usetheme{AnnArbor}
-%\usetheme{Antibes}
-%\usetheme{Bergen}
-%\usetheme{Berkeley}
-%\usetheme{Berlin}
-%\usetheme{Boadilla}
 \usetheme{CambridgeUS}
-%\usetheme{Copenhagen}
-%\usetheme{Darmstadt}
-%\usetheme{Dresden}
-%\usetheme{Frankfurt}
-%\usetheme{Goettingen}
-%\usetheme{Hannover}
-%\usetheme{Ilmenau}
-%\usetheme{JuanLesPins}
-%\usetheme{Luebeck}
-%\usetheme{Madrid}
-%\usetheme{Malmoe}
-%\usetheme{Marburg}
-%\usetheme{Montpellier}
-%\usetheme{PaloAlto}
-%\usetheme{Pittsburgh}
-%\usetheme{Rochester}
-%\usetheme{Singapore}
-%\usetheme{Szeged}
-%\usetheme{Warsaw}
 
-% As well as themes, the Beamer class has a number of color themes
-% for any slide theme. Uncomment each of these in turn to see how it
-% changes the colors of your current slide theme.
-
-%\usecolortheme{albatross}
-%\usecolortheme{beaver}
-%\usecolortheme{beetle}
-%\usecolortheme{crane}
-%\usecolortheme{dolphin}
-%\usecolortheme{dove}
-%\usecolortheme{fly}
-%\usecolortheme{lily}
-%\usecolortheme{orchid}
-%\usecolortheme{rose}
-%\usecolortheme{seagull}
-%\usecolortheme{seahorse}
-%\usecolortheme{whale}
-%\usecolortheme{wolverine}
-
-%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
-%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
-
-%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
 }
 
 \usepackage{graphicx} % Allows including images
@@ -122,7 +69,7 @@ Open innovation goes beyond internal development by exploring opportunities for 
 \begin{itemize}
 \item \textbf{Maximisation:} Open innovation offers more opportunities for how to generate profit, including commercialisation, but also pooling and licensing. How can firms pick the method that maximises return on investment?
 \item \textbf{Incorporation:} Opportunities for innovation from external sources existing alone does not offer any benefit to the firm. The firm needs to find these opportunities and be able \& willing to integrate them into the main business.
-\item \textbf{Motivation:} What benefit do firms stand to receive from releasing spillovers? Why would they spend money on R\&D if the result will be available to competitors?
+\item \textbf{Motivation:} The paradox of open innovation: Why would companies spend money on R\&D only to then make those innovations available to their competitors?
 \end{itemize}
 \end{frame}
 
@@ -170,7 +117,7 @@ One strategic spinout is Eclipse, developed initially by IBM. Java development t
 
 Eclipse was released into the public domain to establish it as a \textit{de facto} standard. IBM was then able to sell complementary products such as WebSphere to make a return.\\~\\
 
-Most often used for largest firms with the highest innovation budgets.
+Most often used by firms with the highest R\&D budgets.
 \end{frame}
 
 %------------------------------------------------
@@ -183,6 +130,8 @@ Central product is based on an external innovation, yet complements are develope
 
 Apple started Darwin to contribute its changes to BSD Unix back to the open-source community. But all remaining code behind the OSX operating system remained private.\\~\\
 
+Contributions assist the firm's reputation in the community.\\~\\
+
 Another common strategy is to open-source the product, but offer training and support services, as is the case with Red Hat Enterprise Linux.
 \end{frame}
 
@@ -194,7 +143,7 @@ The central product is developed internally, but tools are made available extern
 
 Internal developers benefit from extended lifetime of their core innovation, and external developers gain recognition.\\~\\
 
-Alongside the Half Life Games, Valve Corporation released Team Fortress Classic to promote their development kit. This lead to community mods such as Counter Strike and The Stanley Parable.\\~\\
+Alongside the Half Life Games, Valve Corporation released Team Fortress Classic to promote the Half Life software development kit. This lead to community mods such as Counter-Strike and The Stanley Parable.\\~\\
 
 Id Software released Quake publicly to encourage modifications to their game. Source code is licensed so that Id receives a portion of any sales made from mods.\\~\\
 
@@ -207,10 +156,10 @@ Typically sold to technically proficient audiences.
 
 \begin{frame}
 \frametitle{Further Challenges}
-\begin{itemize}[<+->]
+\begin{itemize}
 \item Open innovation can introduce higher coordination costs.
 \item As innovations become more commercialised, the principles and ideals behind open-source could disappear.
-\item Popularity for open-source could wade if projects fail against competitors such as Microsoft.
+\item Popularity for open-source could wade if projects fail against proprietry competitors such as Microsoft.
 \item Risk of users (un)knowingly contributing proprietry to open-source projects due to accepting donations from unknown users.
 \end{itemize}
 \end{frame}
@@ -220,35 +169,48 @@ Typically sold to technically proficient audiences.
 %------------------------------------------------
 
 \begin{frame}
-\frametitle{Figure}
-Uncomment the code on this slide to include your own image from the same directory as the template .TeX file.
-%\begin{figure}
-%\includegraphics[width=0.8\linewidth]{test}
-%\end{figure}
-\end{frame}
+\frametitle{Is the Motivation Paradox Solved?}
+For each method, a motivation for external innovation is given from the paper:
+\begin{itemize}
+\item \textbf{Pooled R\&D:} Ongoing institutions establish legitimacy and continuity
+\item \textbf{Spinouts:} Free access to valuable technology
+\item \textbf{Selling complements:} Firms coordinate ongoing supply of components
+\item \textbf{Donated complements:} Recognition and other non-monetary rewards
+\end{itemize}
 
-%------------------------------------------------
-
-\begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
-\frametitle{Citation}
-An example of the \verb|\cite| command to cite within the presentation:\\~
-
-This statement requires citation \cite{p1}.
+But can these reasons motivate larger firms to contribute? These motivations are based more on reputation and principle than a return on investment.
 \end{frame}
 
 %------------------------------------------------
 
 \begin{frame}
-\frametitle{References}
-\footnotesize{
-\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
-\bibitem[Smith, 2012]{p1} John Smith (2012)
-\newblock Title of the publication
-\newblock \emph{Journal Name} 12(3), 45 -- 678.
-\end{thebibliography}
-}
+\frametitle{What if Firms Don't Want to Contribute?}
+Open-source proposals have failed in some areas of technology before.\\~\\
+
+The Open Cloud Manifesto was famously rejected by Amazon, Google and Microsoft, three of the largest vendors of cloud computing.\\~\\
+
+Since then, the website has closed down without any comment.\\~\\
+
+While the Open Cloud Manifesto itself was about setting a standard for cloud computing rather than sharing innovation, it sets an important question: Can open innovation succeed in an industry if its largest firms do not want to share their work?\\~\\
+
+And if not, how can these big players be convinced to participate if it could result in them losing customers?
 \end{frame}
 
+%------------------------------------------------
+\section{Conclusion}
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Conclusion}
+Open innovation is a rapidly growing research methodology.Many industries are already shrinking the size of their R\&D departments in favour of open innovation techniques.\\~\\
+
+But open innovation in turn provides its own difficulties to be resolved, to the extent of requiring completely new strategies \\~\\
+
+This paper explains how to counter some of these challenges by taking inspiration from the IT firms which contribute to open-source projects. But these solutions can provide drawbacks of their own, and unsolved challenges still remain.
+\end{frame}
+
+%------------------------------------------------
+\section{The End}
 %------------------------------------------------
 
 \begin{frame}
