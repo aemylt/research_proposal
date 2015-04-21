@@ -24,7 +24,7 @@
 }
 
 \usepackage{graphicx} % Allows including images
-\DeclareGraphicsExtensions{.png}
+\DeclareGraphicsExtensions{.png, .pdf}
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage[parfill]{parskip}
 
@@ -61,10 +61,6 @@ University of Bristol \\ % Your institution for the title page
 \frametitle{'Big Data'}
 ``I remember when this topic was called `Massive Data'. Now it has gone from `Massive Data' to `Big Data'.''
 \textit{Graham Cormode}\footnote{\url{https://youtu.be/AXsBQBzKfYw?t=35s}}
-
-The amount of data we are processing is getting bigger than we could've previously imagined.
-
-We need algorithms that can handle these volumes of data in as little space as possible.
 \end{frame}
 
 %------------------------------------------------
@@ -72,7 +68,7 @@ We need algorithms that can handle these volumes of data in as little space as p
 \begin{frame}
 \frametitle{What's the problem with big data?}
 \begin{center}
-\includegraphics[width=0.5\paperwidth]{moores_law}
+\includegraphics[width=0.4\paperwidth]{moores_law}\footnote{\url{http://upload.wikimedia.org/wikipedia/commons/0/00/Transistor_Count_and_Moore\%27s_Law_-_2011.svg}}
 \end{center}
 "Sure, data's getting bigger, but so are our computers! Why can't we just throw more RAM at the problem?"
 \end{frame}
@@ -83,16 +79,12 @@ We need algorithms that can handle these volumes of data in as little space as p
 \frametitle{May's Law}
 ``Software efficiency halves every 18 months, compensating for Moore's Law.''
 \textit{David May}\footnote{\url{http://www.linux-mag.com/id/8422/}}
-
-Just because the hardware is getting quicker doesn't mean we can utilise that speedup.
-
-Particularly as we move from single to parallel computation.
 \end{frame}
 
 %------------------------------------------------
 
 \begin{frame}
-\frametitle{That data is growing too fast}
+\frametitle{Data is growing too fast}
 Between 1999 and 2015, the size of RAM on commercial machines increased roughly 100 times over.\footnote{Calculated from \url{http://www.jcmit.com/memoryprice.htm}}
 
 In comparison, between 1999 and 2012, the amount of webpages indexed at Google increased 1000 times over.\footnote{\url{http://readwrite.com/2012/02/29/interview_changing_engines_mid-flight_qa_with_goog}}
@@ -129,6 +121,19 @@ Pattern matching is a generic collection of problems that have a wide range of a
 %------------------------------------------------
 
 \begin{frame}
+\frametitle{We don't need to store the whole text}
+The data streaming model is a model of computation where we don't read in the whole input at once.
+
+Instead, we read in portions of the input.
+
+Pattern matching easily applies to this. Some algorithms such as Knuth-Morris-Pratt only read each character in the text once, so they can easily be streamed instead.
+
+The streaming model is also more relistic to some low-memory applications, such as routers.
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
 \frametitle{Space constraints}
 Historically, pattern matching has required linear space. As the pattern grows, your data structure grows at the same rate.
 
@@ -145,18 +150,34 @@ Breslauer and Galil (2011) improved Porat and Porat's complexity from $O(n\log m
 
 Jalsenius, Porat and Sach (2012) created a solution to parameterised matching in sublinear space and $O(n)$ time.
 
-Clifford, Fontaine, Porat and Sach (to be published) created a solution to pattern matching with multiple patterns in sublinear space and $O(n\log m)$ time.
+Clifford et al. (to be published) created a solution to pattern matching with multiple patterns in sublinear space and $O(n\log m)$ time.
+\end{frame}
+
+%------------------------------------------------
+\section{Looking ahead}
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Some theory problems}
+\begin{itemize}
+    \item\textbf{Parameterised matching:} Current space lower bound is linear in the size of the alphabet. Can we bridge this gap?
+    \item\textbf{Dictionary matching:} Can we improve the solution to $O(n)$ time?
+    \item\textbf{Parameterised dictionary matching:} Currently no sublinear solution known.
+    \item\textbf{Pattern matching against many texts:} Currently no sublinear solution known.
+    \item\textbf{k-mismatch:} Currently no sublinear solution known.
+    \item\textbf{Distance Matching:} Currently no sublinear solution known.
+\end{itemize}
 \end{frame}
 
 %------------------------------------------------
 
 \begin{frame}
-\frametitle{Some theory problems}
-\textbf{Parameterised matching:} Current space lower bound is linear in the size of the alphabet. Can we bridge this gap?
+\frametitle{Pattern matching under annotated streams}
+Annotated data streaming is a recent model of computation proposed by Chakrabarti et al. (2012).
 
-\textbf{Dictionary matching:} Can we improve the solution to $O(n)$ time?
+Alongside the data stream, the computer also has access to a second stream of extra information from a more powerful computer.
 
-\textbf{Parameterised dictionary matching:} Currently no sublinear solution known.
+There are very few pattern matching solutions under this model right now.
 \end{frame}
 
 %------------------------------------------------
@@ -164,8 +185,6 @@ Clifford, Fontaine, Porat and Sach (to be published) created a solution to patte
 \begin{frame}
 \frametitle{Pratical problems}
 Very little research at practical performance of algorithms.
-
-First implementation of Breslauer and Galil was last year.
 
 How can we make these algorithms run better in practice?
 
@@ -175,14 +194,25 @@ Can we incorporate practical concepts such as parallelism or vectorisation?
 %------------------------------------------------
 
 \begin{frame}
-\frametitle{Work plan}
-\textbf{Years 1-2:} Develop and improve current algorithms for pattern matching problems.
+\frametitle{Why are we suitable for this project?}
+I developed the first implementation of Breslauer and Galil's algorithm for exact pattern matching, which yielded positive results:
 
-\textbf{Years 2-3:} Implement new and recent algorithms to see how they perform when compared to classic methods on real data.
+\begin{center}
+\includegraphics[width=0.5\paperwidth]{exact_size}
+\end{center}
 
-\textbf{Years 3-4:} Discover practical bottlenecks and improve performance.
+I have also spent this past six months working on the first implementation of Clifford et al.'s algorithm for dictionary matching.
+\end{frame}
 
-\textbf{Years 3-5:} Release implementations as practical tools for the open-source community.
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Work packages}
+\begin{itemize}
+\item\textbf{WP1:} (Years 1-3) Develop and improve algorithms for pattern matching problems in suiblinear space under the classic streaming model.
+\item\textbf{WP2:} (Years 1-3) Develop new algorithms for pattern matching utilising annotated data streams.
+\item\textbf{WP3:} (Years 3-5) Implement new and recent algorithms to see how they perform when compared to classic methods on real data.
+\end{itemize}
 \end{frame}
 
 %------------------------------------------------
