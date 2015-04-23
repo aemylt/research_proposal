@@ -102,14 +102,6 @@ But can we solve these problems in less space than it takes to store the pattern
 %------------------------------------------------
 
 \begin{frame}
-\frametitle{May's Law}
-``Software efficiency halves every 18 months, compensating for Moore's Law.''
-\textit{David May}\footnote{\url{http://www.linux-mag.com/id/8422/}}
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
 \frametitle{Data is growing too fast}
 Between 1999 and 2015, the size of RAM on commercial machines increased roughly 100 times over.\footnote{Calculated from \url{http://www.jcmit.com/memoryprice.htm}}
 
@@ -141,6 +133,7 @@ Pattern matching is a generic collection of problems that have a wide range of a
     \item Bioinformatics
     \item Web searching
     \item Plagiarism checking
+    \item Intrusion detection
 \end{itemize}
 \end{frame}
 
@@ -174,20 +167,10 @@ Clifford et al. (to be published) created a solution to pattern matching with mu
     \item Parameterised matching
     \item Dictionary matching
     \item Parameterised dictionary matching
-    \item Pattern matching against many texts
+    \item Pattern/Dictionary matching against many texts
     \item $k$-mismatch
+    \item Pattern matching under annotated streams
 \end{itemize}
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{Pattern matching under annotated streams}
-Annotated data streaming is a recent model of computation proposed by Chakrabarti et al. (2012).
-
-Alongside the data stream, the computer also has access to a second stream of extra information from a more powerful computer.
-
-There are very few pattern matching solutions under this model right now.
 \end{frame}
 
 %------------------------------------------------
@@ -211,7 +194,7 @@ I developed the first implementation of Breslauer and Galil's algorithm for exac
 \includegraphics[width=0.5\paperwidth]{exact_size}
 \end{center}
 
-I have also spent this past six months working on the first implementation of Clifford et al.'s algorithm for dictionary matching.
+I have also spent this past four months working on the first implementation of Clifford et al.'s algorithm for dictionary matching.
 \end{frame}
 
 %------------------------------------------------
@@ -220,18 +203,36 @@ I have also spent this past six months working on the first implementation of Cl
 \frametitle{Work packages}
 \begin{itemize}
 \item\textbf{WP1:} (Years 1-2) Develop and improve algorithms for pattern matching problems in suiblinear space under the classic streaming model.
-\item\textbf{WP2:} (Years 1-2) Develop new algorithms for pattern matching with annotated streams.
-\item\textbf{WP3:} (Years 2-4) Implement new and recent algorithms to see how they perform when compared to classic methods on real data.
+\item\textbf{WP2:} (Years 2-3) Implement new and recent algorithms to see how they perform when compared to classic methods on real data.
 \end{itemize}
 \end{frame}
 
 %------------------------------------------------
 
 \begin{frame}
-\frametitle{Direction for Impact}
+\frametitle{Impact Statement}
 \begin{itemize}
-\item\textbf{WP4:} (Years 4-5) Release implementations as tools for the open-source community.
+\item\textbf{WP3:} (Years 2-3.5) Release implementations as tools for the open-source community.
 \end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Justification of Resources}
+\begin{center}
+    \begin{tabular}{|l|c|}
+        \hline
+        \textbf{Item} & \textbf{Cost} \\\hline
+        P.I.: Dominic Moylett & \textsterling350,000 \\\hline
+        C.I.: Charles Anderson (50\% time) & \textsterling175,000 \\\hline
+        Post-Doc: Un-named & \textsterling350,000 \\\hline
+        PhD Student: Un-named & \textsterling100,000 \\\hline
+        Computing Resources & \textsterling100,000 \\\hline
+    \end{tabular}
+
+    \textbf{Total Cost:} \textsterling987,500
+\end{center}
 \end{frame}
 
 %------------------------------------------------
