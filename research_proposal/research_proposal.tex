@@ -9,40 +9,73 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\rhead{Dominic Moylett - dm1905@my.bristol.ac.uk}
-\cfoot{Page \thepage}
-
-\title{The Theory and Practice of Sublinear Space Pattern Matching}
-\author{Dominic Moylett -- dm1905@my.bristol.ac.uk}
+\rhead{\thepage}
 
 \begin{document}
-    \maketitle
+    \section*{The Theory and Practice of Sublinear Space Pattern Matching}
 
-    \section{Bibliography}
+    \section{The proposers}
 
     \subsection{Dominic Moylett: Primary Investigator}
 
     \subsection{Charles Anderson: Co-Investigator}
 
-    \section{Case For Support}
+    \newpage
 
-    \subsection{Data is Getting Bigger}
+    \section*{The Theory and Practice of Sublinear Space Pattern Matching}
+    \section{Case for support}
 
-    ``I remember when this topic was called `Massive Data'. Now it has gone from `Massive Data' to ‘Big Data’'', Graham Cormode \cite{cormode:massive-data}
+    \subsection{Overview and motivation}
 
-    \subsection{Previous Work in Pattern Matching}
+    Pattern matching is a wide collection of problems oriented around one simple question: ``Where does this pattern occur in this text?'' From this question a number of varients occurr, including:
 
-    \subsection{Open Problems}
+    \begin{itemize}
+        \item \textbf{$k$-mismatch:} Where does this pattern occur in the text with up to $k$ characters different?
+        \item \textbf{Dictionary matching:} Where do any of these patterns occur in the text?
+        \item \textbf{Parameterised matching:} Where does this pattern match the text if we relabel the pattern under some one-one mapping?
+        \item \textbf{Distance matching:} How much does this text differ from the pattern?
+    \end{itemize}
 
-    \subsection{Annotated Data Streams}
+    From here, the topic broadens out even further, giving way to a wide variety of applications. Parameterised matching for example has seen a number of applications in checking for duplicated code \cite{Baker:1993:TPP:167088.167115} and plagiarism in software \cite{Pandey:plagiarism}, checking source files for where the same code is used with merely a few variables difference. Dictionary matching has seen applications in problems ranging from bioinformatics -- matching against whole databases of genomes \cite{15713233} -- to intrusion detection -- matching the contents of data packets against collections of attack patterns \cite{1354682} \cite{website:snort-algo}. $k$-mismatch solutions have also been used in bioinformatics for aligning sequences with a reference genome \cite{Tennakoon10062012}.
 
-    \subsection{From Theory to Practice}
+    But there is a problem here. For many of these applications, the size of the data is orders of magnitude greater than the original solutions were devised for. Take dictionary matching as an example, for which the applications mentioned above use an algorithm devised in 1975 by Aho and Corasick \cite{Aho:1975:ESM:360825.360855}. When Aho and Corasick first proposed this algorithm, they did not intend for it to be used to match databases of genomes or attack patterns. Instead, they used it to match two dozen keywords in the titles of various academic papers. Even more pressing is that they explicitly state in their paper that for some applications the algorithm may be unappealing because of its space consumption.
+
+    It might be interesting to ask at this point if this can't simply be resolved by improvements in hardware. But there are a number of problems with this line of thinking. Firstly, even if we assume the space available on RAM will never stop increasing and that we can always use this space fully, the amount of data we want to process is still increasing faster than our capability to store it. As it was said by Lincoln Stein, ``at some time in the not too distant future it will cost less to sequence a base of DNA than to store it on a hard disk.'' \cite{20441614} And secondly, there are some cases where we do not want to keep adding RAM to our hardware as that will most likely increase the physical space of these devices. Examples of this include pattern matching on our phone, or on embedded systems such as intrusion detection on routers.
+
+    Since 2009 \cite{5438620}, a number of solutions have been discovered to prove that it is possible to solve a number of problems not only in less space than it takes to store the text, but less space than it takes to even store the pattern. Following this, the aims of our work following this research proposal is to develop on these results further, focusing on two areas in particular:
+
+    \begin{itemize}
+        \item In the theory domain, we aim to improve upon current time and space bounds for the $k$-mismatch, parameterised matching and dictionary matching problems. We also seek to provide the first sublinear space solution for pattern matching with both multiple texts and multiple patterns. Finally, we aim to provide the first solutions for pattern matching in the annotated data streaming model, which looks at solving problems in as little space as possible when we can delegate some computation to a more powerful machine.
+        \item In the applied domain, we aim to provide implementations of both algorithms developed following the theoretical work in this research proposal and previous algorithms which to our knowledge have never seen prior implementation. We seek to test these algorithms and compare their performance to benchmark solutions in real applications, and improve the real world performance by finding and optimising practical bottlenecks. Finally, we aim to release these implementations as practical tools to the Open-Source community under the GNU General Public License.
+    \end{itemize}
+
+    \subsection{Background}
+
+    It is straightforward to find a way of not needing to store the whole text on a machine. A lot of pattern matching algorithms such as Knuth-Morris-Pratt \cite{kmp} function by only reading one character of the text at a time. Thus we only need to store a window of the text in memory during processing, as opposed to the whole text, and update that window as we read the next character of the text. This is frequently known as \textit{streaming} the input, and is more formally called the time series model  \cite{TCS-002}. But pattern matching in less space than it takes to store the pattern is significantly more difficult.
+
+    \subsection{Objectives, results and success criteria}
+
+    \subsubsection{Results}
+
+    \subsubsection{Success criteria}
+
+    \subsection{Work programme}
+
+    \subsubsection*{WP1: Advances in theoretical work}
+
+    \subsubsection*{WP2: Implementation of theoretical work}
+
+    \subsubsection*{WP3: Release of open-source tools}
 
     \section{Budget}
 
-    \section{Justification For Resources}
+    \section{Justification for resources}
 
-    \section{Impact Statement}
+    \section{Impact statement}
+
+    \subsection{Academic Impact}
+
+    \subsection{Industrial Impact}
 
     \section{Workplan}
 
