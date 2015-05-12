@@ -1,10 +1,14 @@
 --
 Aho
+Aho-Corasick
+al.'s
 bioinformatics
 Breslauer
+CALDAM
 Chili
 Corasick
 Galil
+ICAA
 Jalsenius
 Knuth-Morris-Pratt
 -mismatch
@@ -13,8 +17,10 @@ Moylett
 parameterised
 Parameterised
 Porat
+reproduceable
 Sach
 setup
+setups
 sublinear
 Sublinear
 wildcards

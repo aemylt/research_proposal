@@ -66,11 +66,17 @@
 
     But in 2009, Porat and Porat \cite{5438620} proved that the problem was in not allowing for errors. If we allowed a chance of both false positive and false negative results with some negligible probability of error, we could achieve a solution for the classic pattern matching problem in $O(n\log m)$ time and $O(\log m)$ space, where $n$ and $m$ are the length of the text and pattern respectively. This was the first ever solution to, as the authors themselves put it, break ``the $O(m)$ barrier that held for this problem for a long time.'' Breslauer and Galil \cite{Breslauer:2014:RSS:2660854.2635814} improved on this work even further, reducing the time complexity of the algorithm to constant time per character, or $O(n)$ time over the whole text.
 
-    Subsequent work has been focused around two areas. The first, largely investigated by Clifford et al.\@ \cite{DBLP:journals/corr/abs-1106-4412}, provided a number of key insights into the lower bounds of these problems. In particular, they proved that the classic pattern matching problem requires $\Omega(\log m)$ words of space, and many other problems including distance matching and pattern matching with wildcards as mentioned above require at least linear space.
+    Subsequent work has been focused around two areas. The first, largely investigated by Clifford et al.\@ \cite{DBLP:journals/corr/abs-1106-4412}, provided a number of key insights into the space lower bounds of these problems. In particular, they proved that the classic pattern matching problem requires $\Omega(\log m)$ words of space, and many other problems including distance matching and pattern matching with wildcards as mentioned above require at least linear space.
 
     The second direction was to see what other problems could be solved in this area. Alongside their solution for classic pattern matching, Porat and Porat \cite{5438620} provided a solution to the $k$-mismatch problem in $O(k^2\polylog m)$ time and $O(k^3\polylog m)$ space. The next major breakthrough was in 2013, when Jalsenius, Porat and Sach \cite{JPS:2013} provided a solution to the parameterised matching problem in $O(|\Sigma|\log m)$ space, and introduced a lower bound of $\Omega(|\Sigma|)$ space, where $\Sigma$ is the alphabet of the text and pattern. The most recent accomplishment in this direction has been by Clifford et al.\@ \cite{2015arXiv150406242C}, which provided a solution to the dictionary matching problem of $O(k\log m)$ space and $O(\log\log(k + m))$ time per character, where $k$ is the number of patterns and $m$ is the longest pattern.
 
-    \section{Objectives, results and success criteria}
+    For our theoretical contributions, we will aim to provide results in both directions. We will investigate the gaps in time complexity between the sublinear space solutions and the best-known results. Under dictionary matching for example, the best known time complexity is constant time per character by using Aho-Corasick, while Clifford et al.'s sublinear space solution uses $O(\log\log(k + m))$ time per character. We will also seek to reduce the gaps between known upper and lower bounds with regards to space complexity. $k$-mismatch for example has a known space lower bound in classical computing of $O(k\log k)$, yet no currently known solution hits this bound.
+
+    In the practical world, work has been a lot less well-known. There are little to no currently published papers on implementing these algorithms, and thus we know almost nothing about how well these algorithms will perform in practice. This has been a common problem throughout theoretical computer science, and has thus resulted in a number of conferences based around applied and experimental work, such as Conference on Algorithms and Discrete Applied Mathematics (CALDAM)\footnote{\url{http://caldam.cse.iitk.ac.in/}} and the International Conference on Applied Algorithms (ICAA)\footnote{\url{https://sites.google.com/site/icaa2014/}}.
+
+    To offer contributions to the practical domain, we will implement classic solutions to pattern matching algorithms as benchmarks and provide implementations of these more recent solutions. We will complement these implementations with a number of test benches for the problems, similar to the experimental setup of the Pizza\&Chili Corpus\footnote{\url{http://pizzachili.dcc.uchile.cl/index.html}} for text indexing. To ensure our work is reproduceable, we will host online access to these experimental setups and allow visitors the ability to contribute their own solutions to the pattern matching problems. Using these test benches will also give us key insights into the practical bottlenecks of these algorithms, and give us ideas as to how we can reduce the size of the constants that result from this work. Finally, we will release these solutions publicly under the GPL, and propose integration into projects such as Snort.
+
+    \section{Objectives and deliverables}
 
     Our aims for this project are to investigate improvements to the current theoretical achievements stated above, propose new solutions to currently open problems, and develop practical implementations of these algorithms to release to the public. Specifically, our objectives are:
 
@@ -85,7 +91,7 @@
 
     \begin{enumerate}
         \item New solutions to time and space bounds for current problems, through reducing upper bounds by improving the solutions and/or increasing lower bounds by novel methods.
-        \item Publicly accessible test benches for analysis of various streaming solutions to different pattern matching problems, similar to the experimental setup of the Pizza\&Chili Corpus\footnote{\url{http://pizzachili.dcc.uchile.cl/index.html}} for text indexing.
+        \item Publicly accessible test benches for analysis of various streaming solutions to different pattern matching problems.
         \item Release of source code as libraries under the GPL, and proposals for integration into other open source projects such as the Snort intrusion prevention system.
     \end{enumerate}
 
@@ -93,9 +99,45 @@
 
     \subsection*{WP1: Advances in theoretical work}
 
+    Research leader: Dominic Moylett
+
+    Principle research objective:
+    \begin{quote}
+        To reduce the current gaps between upper and lower bounds for sublinear space pattern matching algorithms through both improving the best known theoretical algorithms and exploring potential new methods for increasing lower bounds.
+    \end{quote}
+
+    Principle deliverables:
+    \begin{enumerate}
+        \item Stuff
+    \end{enumerate}
+
     \subsection*{WP2: Implementation of theoretical work}
 
+    Research leader: Charles Anderson
+
+    Principle research objective:
+    \begin{quote}
+        Words
+    \end{quote}
+
+    Principle deliverables:
+    \begin{enumerate}
+        \item Stuff
+    \end{enumerate}
+
     \subsection*{WP3: Release of open-source tools}
+
+    Research leader: Dominic Moylett
+
+    Principle research objective:
+    \begin{quote}
+        Words
+    \end{quote}
+
+    Principle deliverables:
+    \begin{enumerate}
+        \item Stuff
+    \end{enumerate}
 
     \section{Academic Impact}
 
