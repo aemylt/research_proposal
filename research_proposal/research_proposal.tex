@@ -11,26 +11,35 @@
 \fancyhf{}
 \rhead{\thepage}
 
+% add paragraph breaks
+\setlength{\parskip}{0.5em}
+\renewcommand{\baselinestretch}{1.0}
+\setlength{\parindent}{0em}
+
+\usepackage{amsmath}
+
+\DeclareMathOperator\polylog{polylog}
+
 \begin{document}
     \section*{The Theory and Practice of Sublinear Space Pattern Matching}
 
-    \section{The proposers}
+    \section*{The proposers}
 
-    \subsection{Dominic Moylett: Primary Investigator}
+    \subsection*{Dominic Moylett: Primary Investigator}
 
-    \subsection{Charles Anderson: Co-Investigator}
+    \subsection*{Charles Anderson: Co-Investigator}
 
     \newpage
-
     \section*{The Theory and Practice of Sublinear Space Pattern Matching}
-    \section{Case for support}
+    \section*{Case for support}
 
-    \subsection{Overview and motivation}
+    \section{Overview and motivation}
 
     Pattern matching is a wide collection of problems oriented around one simple question: ``Where does this pattern occur in this text?'' From this question a number of varients occurr, including:
 
     \begin{itemize}
         \item \textbf{$k$-mismatch:} Where does this pattern occur in the text with up to $k$ characters different?
+        \item \textbf{Pattern matching with wildcards:} Where does this pattern occur in the text if we ignore these characters?
         \item \textbf{Dictionary matching:} Where do any of these patterns occur in the text?
         \item \textbf{Parameterised matching:} Where does this pattern match the text if we relabel the pattern under some one-one mapping?
         \item \textbf{Distance matching:} How much does this text differ from the pattern?
@@ -45,40 +54,63 @@
     Since 2009 \cite{5438620}, a number of solutions have been discovered to prove that it is possible to solve a number of problems not only in less space than it takes to store the text, but less space than it takes to even store the pattern. Following this, the aims of our work following this research proposal is to develop on these results further, focusing on two areas in particular:
 
     \begin{itemize}
-        \item In the theory domain, we aim to improve upon current time and space bounds for the $k$-mismatch, parameterised matching and dictionary matching problems. We also seek to provide the first sublinear space solution for pattern matching with both multiple texts and multiple patterns. Finally, we aim to provide the first solutions for pattern matching in the annotated data streaming model, which looks at solving problems in as little space as possible when we can delegate some computation to a more powerful machine.
-        \item In the applied domain, we aim to provide implementations of both algorithms developed following the theoretical work in this research proposal and previous algorithms which to our knowledge have never seen prior implementation. We seek to test these algorithms and compare their performance to benchmark solutions in real applications, and improve the real world performance by finding and optimising practical bottlenecks. Finally, we aim to release these implementations as practical tools to the Open-Source community under the GNU General Public License.
+        \item In the theory domain, we aim to improve upon current time and space bounds for the $k$-mismatch, parameterised matching and dictionary matching problems. We also seek to provide the first sublinear space solution for pattern matching with both multiple texts and multiple patterns.
+        \item In the applied domain, we aim to provide implementations of both algorithms developed following the theoretical work in this research proposal and previous algorithms which to our knowledge have never seen prior implementation. We seek to test these algorithms and compare their performance to benchmark solutions in real applications, and improve the real world performance by finding and optimising practical bottlenecks. Finally, we aim to release these implementations as practical tools to the Open-Source community under the GNU General Public License (GPL).
     \end{itemize}
 
-    \subsection{Background}
+    \section{Background}
 
-    It is straightforward to find a way of not needing to store the whole text on a machine. A lot of pattern matching algorithms such as Knuth-Morris-Pratt \cite{kmp} function by only reading one character of the text at a time. Thus we only need to store a window of the text in memory during processing, as opposed to the whole text, and update that window as we read the next character of the text. This is frequently known as \textit{streaming} the input, and is more formally called the time series model  \cite{TCS-002}. But pattern matching in less space than it takes to store the pattern is significantly more difficult.
+    It is straightforward to find a way of not needing to store the whole text on a machine. A lot of pattern matching algorithms such as Knuth-Morris-Pratt \cite{kmp} function by only reading one character of the text at a time. Thus we only need to store a window of the text in memory during processing, as opposed to the whole text, and update that window as we read the next character of the text. This is frequently known as \textit{streaming} the input, and is more formally called the time series model \cite{TCS-002}.
 
-    \subsection{Objectives, results and success criteria}
+    But pattern matching in less space than it takes to store the pattern is significantly more difficult. Intuitively, this makes sense; how can we check if a pattern has occurred if we don't have enough space to know what the pattern is? Clifford et al.\@ \cite{clifford:black-box} proved that this intuition held for many problems; as long as we did not want any chance of errors, it was impossible to perform pattern matching in sublinear space relative to the pattern.
 
-    \subsubsection{Results}
+    But in 2009, Porat and Porat \cite{5438620} proved that the problem was in not allowing for errors. If we allowed a chance of both false positive and false negative results with some negligible probability of error, we could achieve a solution for the classic pattern matching problem in $O(n\log m)$ time and $O(\log m)$ space, where $n$ and $m$ are the length of the text and pattern respectively. This was the first ever solution to, as the authors themselves put it, break ``the $O(m)$ barrier that held for this problem for a long time.'' Breslauer and Galil \cite{Breslauer:2014:RSS:2660854.2635814} improved on this work even further, reducing the time complexity of the algorithm to constant time per character, or $O(n)$ time over the whole text.
 
-    \subsubsection{Success criteria}
+    Subsequent work has been focused around two areas. The first, largely investigated by Clifford et al.\@ \cite{DBLP:journals/corr/abs-1106-4412}, provided a number of key insights into the lower bounds of these problems. In particular, they proved that the classic pattern matching problem requires $\Omega(\log m)$ words of space, and many other problems including distance matching and pattern matching with wildcards as mentioned above require at least linear space.
 
-    \subsection{Work programme}
+    The second direction was to see what other problems could be solved in this area. Alongside their solution for classic pattern matching, Porat and Porat \cite{5438620} provided a solution to the $k$-mismatch problem in $O(k^2\polylog m)$ time and $O(k^3\polylog m)$ space. The next major breakthrough was in 2013, when Jalsenius, Porat and Sach \cite{JPS:2013} provided a solution to the parameterised matching problem in $O(|\Sigma|\log m)$ space, and introduced a lower bound of $\Omega(|\Sigma|)$ space, where $\Sigma$ is the alphabet of the text and pattern. The most recent accomplishment in this direction has been by Clifford et al.\@ \cite{2015arXiv150406242C}, which provided a solution to the dictionary matching problem of $O(k\log m)$ space and $O(\log\log(k + m))$ time per character, where $k$ is the number of patterns and $m$ is the longest pattern.
 
-    \subsubsection*{WP1: Advances in theoretical work}
+    \section{Objectives, results and success criteria}
 
-    \subsubsection*{WP2: Implementation of theoretical work}
+    Our aims for this project are to investigate improvements to the current theoretical achievements stated above, propose new solutions to currently open problems, and develop practical implementations of these algorithms to release to the public. Specifically, our objectives are:
 
-    \subsubsection*{WP3: Release of open-source tools}
+    \begin{enumerate}
+        \item To work on improvements to current bounds for a number of problems, including time bounds for dictionary matching, space bounds for parameterised matching, and time and space bounds for $k$-mismatch.
+        \item To propose solutons to open problems. In particular, the only currently known sublinear space solution for the problem of matching multiple patterns against multiple texts involves running multiple independent instances of the Clifford et al.\@ algorithm for dictionary matching.
+        \item To develop implementations of algorithms from both this project and other work, and develop test benches in order to profile and optimise bottlenecks when running these algorithms on real data.
+        \item To release these implementations to the open-source community under the GPL.
+    \end{enumerate}
 
-    \section{Budget}
+    \subsection{Deliverables}
 
-    \section{Justification for resources}
+    \begin{enumerate}
+        \item New solutions to time and space bounds for current problems, through reducing upper bounds by improving the solutions and/or increasing lower bounds by novel methods.
+        \item Publicly accessible test benches for analysis of various streaming solutions to different pattern matching problems, similar to the experimental setup of the Pizza\&Chili Corpus\footnote{\url{http://pizzachili.dcc.uchile.cl/index.html}} for text indexing.
+        \item Release of source code as libraries under the GPL, and proposals for integration into other open source projects such as the Snort intrusion prevention system.
+    \end{enumerate}
 
-    \section{Impact statement}
+    \section{Work programme}
 
-    \subsection{Academic Impact}
+    \subsection*{WP1: Advances in theoretical work}
 
-    \subsection{Industrial Impact}
+    \subsection*{WP2: Implementation of theoretical work}
 
-    \section{Workplan}
+    \subsection*{WP3: Release of open-source tools}
+
+    \section{Academic Impact}
 
     \bibliography{research_proposal}
+
+    \newpage
+    \section{Budget}
+
+    \newpage
+    \section{Justification for resources}
+
+    \newpage
+    \section{Impact statement}
+
+    \newpage
+    \section{Workplan}
 
 \end{document}
