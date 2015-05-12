@@ -74,7 +74,7 @@
 
     In the practical world, work has been a lot less well-known. There are little to no currently published papers on implementing these algorithms, and thus we know almost nothing about how well these algorithms will perform in practice. This has been a common problem throughout theoretical computer science, and has thus resulted in a number of conferences based around applied and experimental work, such as Conference on Algorithms and Discrete Applied Mathematics (CALDAM)\footnote{\url{http://caldam.cse.iitk.ac.in/}} and the International Conference on Applied Algorithms (ICAA)\footnote{\url{https://sites.google.com/site/icaa2014/}}.
 
-    To offer contributions to the practical domain, we will implement classic solutions to pattern matching algorithms as benchmarks and provide implementations of these more recent solutions. We will complement these implementations with a number of test benches for the problems, similar to the experimental setup of the Pizza\&Chili Corpus\footnote{\url{http://pizzachili.dcc.uchile.cl/index.html}} for text indexing. To ensure our work is reproduceable, we will host online access to these experimental setups and allow visitors the ability to contribute their own solutions to the pattern matching problems. Using these test benches will also give us key insights into the practical bottlenecks of these algorithms, and give us ideas as to how we can reduce the size of the constants that result from this work. Finally, we will release these solutions publicly under the GPL, and propose integration into projects such as Snort.
+    To offer contributions to the practical domain, we will implement classic solutions to pattern matching algorithms as benchmarks and provide implementations of these more recent solutions. We will complement these implementations with a number of test benches for the problems, similar to the experimental setup of the Pizza\&Chili Corpus\footnote{\url{http://pizzachili.dcc.uchile.cl/index.html}} for text indexing. To ensure our work is reproduceable, we will host online access to these experimental setups and allow visitors the ability to contribute their own solutions to the pattern matching problems. Using these test benches will also give us key insights into the practical bottlenecks of these algorithms, and give us ideas as to how we can reduce the size of the constants that result from this work. Finally, we will release these solutions publicly under the GPL, and propose integration of these solutions into projects such as Snort.
 
     \section{Objectives and deliverables}
 
@@ -95,9 +95,9 @@
         \item Release of source code as libraries under the GPL, and proposals for integration into other open source projects such as the Snort intrusion prevention system.
     \end{enumerate}
 
-    \section{Work programme}
+    \section{Work programme and methodology}
 
-    \subsection*{WP1: Advances in theoretical work}
+    \subsection*{Work package 1 (WP1): Advances in theoretical work}
 
     Research leader: Dominic Moylett
 
@@ -108,10 +108,18 @@
 
     Principle deliverables:
     \begin{enumerate}
-        \item Stuff
+        \item Improved algorithms towards problems such as $k$-mismatch and dictionary matching.
+        \item Sublinear space algorithms for new problems such as multiple texts and multiple patterns.
+        \item A reduced gap between upper and lower bounds for space complexity of problems.
     \end{enumerate}
 
-    \subsection*{WP2: Implementation of theoretical work}
+    This work package is to address objectives one and two from our list of main objectives, as well as deliverable one. The main criteria for success with this work package will be a reduction in the gap between upper and lower bounds for these problems, as well as new algorithms to be utilised in WP2 and WP3.
+
+    The biggest challenge in this work package is increasing the lower bounds. With $k$-mismatch for example, it is impossible to improve the lower bound using communication complexity techniques as have been traditionally used \cite{DBLP:journals/corr/abs-1106-4412}. To help in this matter, we will work in collaboration with academic researchers on new models for investigating lower bounds.
+
+    The post doctoral research assistant will be involved in this work package, in particular focusing on deliverables one and two by developing new or improved theoretical algorithms.
+
+    \subsection*{Work package 2 (WP2): Implementation of theoretical work}
 
     Research leader: Charles Anderson
 
@@ -125,7 +133,7 @@
         \item Stuff
     \end{enumerate}
 
-    \subsection*{WP3: Release of open-source tools}
+    \subsection*{Work package 3 (WP3): Release of open-source tools}
 
     Research leader: Dominic Moylett
 
