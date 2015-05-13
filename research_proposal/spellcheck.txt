@@ -7,6 +7,7 @@ Breslauer
 CALDAM
 Chili
 Corasick
+EPSRC
 Galil
 ICAA
 Jalsenius
@@ -16,6 +17,7 @@ Knuth-Morris-Pratt
 Moylett
 parameterised
 Parameterised
+PhD
 Porat
 reproduceable
 Sach
@@ -23,9 +25,12 @@ setup
 setups
 sublinear
 Sublinear
+uploaders
 wildcards
 Workplan
 WP1
+WP1.
 WP2
+WP2.
 WP3
 WP3.

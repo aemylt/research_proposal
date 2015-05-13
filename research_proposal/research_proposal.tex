@@ -92,7 +92,7 @@
     \begin{enumerate}
         \item New solutions to time and space bounds for current problems, through reducing upper bounds by improving the solutions and/or increasing lower bounds by novel methods.
         \item Publicly accessible test benches for analysis of various streaming solutions to different pattern matching problems.
-        \item Release of source code as libraries under the GPL, and proposals for integration into other open source projects such as the Snort intrusion prevention system.
+        \item Release of source code as libraries under the GPL, and proposals for integration into other open-source projects such as the Snort intrusion prevention system.
     \end{enumerate}
 
     \section{Work programme and methodology}
@@ -125,13 +125,20 @@
 
     Principle research objective:
     \begin{quote}
-        Words
+        To implement a selection of algorithms for various pattern matching problems, measure their performance on test benches when applied to real data and devise a number of practical optimisations based on bottlenecks discovered.
     \end{quote}
 
     Principle deliverables:
     \begin{enumerate}
-        \item Stuff
+        \item A number of implementations for various stream-based pattern matching algorithms, optimised based on bottlenecks found during profiling.
+        \item A collection of test benches for measuring various performance qualities of these implementations, including but not limited to: working space during processing, preprocessing time, (amortised and/or worst case) run time per character, and rate of false positives/false negatives.
     \end{enumerate}
+
+    There are two broad aims in particular we want from this work package. Firstly, we want others to have the ability to reproduce our experimental results. And secondly, we want to encourage further developments in this area after our project is complete.
+
+    With this in mind, these test benches are to be made, alongside the data the algorithms were tested on, publicly available online. They will be hosted on a cloud service provider, and set up such that anyone can upload an implementation to be measured on a test bench, as long as the implementation's source code integrates with the existing code and all tests terminate successfully. After all tests are complete, the uploaders can select whether or not to publish their source code and the performance of their implementation alongside those already hosted on the test bench.
+
+    The majority of this work package is to be completed by a PhD student, under the supervision of the co-investigator for this period of the project. Note that we have not for this package mentioned any specific algorithms for the student to implement for this package. This is to offer the student a chance to lead on their own. Guidance will be offered, but the emphasis will be on \textit{them} choosing which algorithms they implement. The only guidance in this area is that in later years of the project, we will recommend that they implement some of the algorithms resulting from the work of WP1.
 
     \subsection*{Work package 3 (WP3): Release of open-source tools}
 
@@ -139,13 +146,18 @@
 
     Principle research objective:
     \begin{quote}
-        Words
+        To release the implementations from WP2 under the GPL and provide them as contributions into other open-source projects.
     \end{quote}
 
     Principle deliverables:
     \begin{enumerate}
-        \item Stuff
+        \item Open-source releases of the implementations from the previous work package.
+        \item Branches or forks in established open-source projects with implementations from WP2 integrated into the applications.
     \end{enumerate}
+
+    The reason for distinguishing between this work package and WP2 is because of the different group targeted for each package. WP2 is aimed at the academic community, with emphasis on experimentation. This package is to cater for the industrial community, to show how these implementations can be used in the real world as opposed to merely within an experimental setting. Despite this difference in audience however, there is still a noticeable connection between this work package and WP2. Hence, this work will be primarily carried out by the PhD student again.
+
+    The overall aim with this work package is to understand how useful the algorithms are when applied to real applications. Unlike WP1 and WP2, this cannot be easily measured, and thus determining our success is more challenging here. With this in mind, we aim to utilise industrial contacts for feedback about the algorithms, and rely on the judging of the EPSRC panel to decide the extent of which this work package has been successfully completed.
 
     \section{Academic Impact}
 
