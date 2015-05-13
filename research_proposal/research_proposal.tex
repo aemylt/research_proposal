@@ -70,7 +70,7 @@
 
     The second direction was to see what other problems could be solved in this area. Alongside their solution for classic pattern matching, Porat and Porat \cite{5438620} provided a solution to the $k$-mismatch problem in $O(k^2\polylog m)$ time and $O(k^3\polylog m)$ space. The next major breakthrough was in 2013, when Jalsenius, Porat and Sach \cite{JPS:2013} provided a solution to the parameterised matching problem in $O(|\Sigma|\log m)$ space, and introduced a lower bound of $\Omega(|\Sigma|)$ space, where $\Sigma$ is the alphabet of the text and pattern. The most recent accomplishment in this direction has been by Clifford et al.\@ \cite{2015arXiv150406242C}, which provided a solution to the dictionary matching problem of $O(k\log m)$ space and $O(\log\log(k + m))$ time per character, where $k$ is the number of patterns and $m$ is the longest pattern.
 
-    For our theoretical contributions, we will aim to provide results in both directions. We will investigate the gaps in time complexity between the sublinear space solutions and the best-known results. Under dictionary matching for example, the best known time complexity is constant time per character by using Aho-Corasick, while Clifford et al.'s sublinear space solution uses $O(\log\log(k + m))$ time per character. We will also seek to reduce the gaps between known upper and lower bounds with regards to space complexity. $k$-mismatch for example has a known space lower bound in classical computing of $O(k\log k)$, yet no currently known solution hits this bound.
+    For our theoretical contributions, we will aim to provide results in both directions. We will investigate the gaps in time complexity between the sublinear space solutions and the best-known results. Under dictionary matching for example, the best known time complexity is constant time per character by using Aho-Corasick, while Clifford et al.'s sublinear space solution currently does not.
 
     In the practical world, work has been a lot less well-known. There are little to no currently published papers on implementing these algorithms, and thus we know almost nothing about how well these algorithms will perform in practice. This has been a common problem throughout theoretical computer science, and has thus resulted in a number of conferences based around applied and experimental work, such as Conference on Algorithms and Discrete Applied Mathematics (CALDAM)\footnote{\url{http://caldam.cse.iitk.ac.in/}} and the International Conference on Applied Algorithms (ICAA)\footnote{\url{https://sites.google.com/site/icaa2014/}}.
 
@@ -90,7 +90,7 @@
     \subsection{Deliverables}
 
     \begin{enumerate}
-        \item New solutions to time and space bounds for current problems, through reducing upper bounds by improving the solutions and/or increasing lower bounds by novel methods.
+        \item New algorithms to improve time and space bounds for current problems.
         \item Publicly accessible test benches for analysis of various streaming solutions to different pattern matching problems.
         \item Release of source code as libraries under the GPL, and proposals for integration into other open-source projects such as the Snort intrusion prevention system.
     \end{enumerate}
@@ -103,21 +103,18 @@
 
     Principle research objective:
     \begin{quote}
-        To reduce the current gaps between upper and lower bounds for sublinear space pattern matching algorithms through both improving the best known theoretical algorithms and exploring potential new methods for increasing lower bounds.
+        To reduce the current gaps between upper and lower bounds for sublinear space pattern matching algorithms through improving the best known theoretical algorithms.
     \end{quote}
 
     Principle deliverables:
     \begin{enumerate}
         \item Improved algorithms towards problems such as $k$-mismatch and dictionary matching.
         \item Sublinear space algorithms for new problems such as multiple texts and multiple patterns.
-        \item A reduced gap between upper and lower bounds for space complexity of problems.
     \end{enumerate}
 
     This work package is to address objectives one and two from our list of main objectives, as well as deliverable one. The main criteria for success with this work package will be a reduction in the gap between upper and lower bounds for these problems, as well as new algorithms to be utilised in WP2 and WP3.
 
-    The biggest challenge in this work package is increasing the lower bounds. With $k$-mismatch for example, it is impossible to improve the lower bound using communication complexity techniques as have been traditionally used \cite{DBLP:journals/corr/abs-1106-4412}. To help in this matter, we will work in collaboration with academic researchers on new models for investigating lower bounds.
-
-    The post doctoral research assistant will be involved in this work package, in particular focusing on deliverables one and two by developing new or improved theoretical algorithms.
+    The post doctoral research assistant will be involved in this work package, due to the theoretical challenges involved in devising new solutions to algorithms.
 
     \subsection*{Work package 2 (WP2): Implementation of theoretical work}
 
@@ -136,9 +133,9 @@
 
     There are two broad aims in particular we want from this work package. Firstly, we want others to have the ability to reproduce our experimental results. And secondly, we want to encourage further developments in this area after our project is complete.
 
-    With this in mind, these test benches are to be made, alongside the data the algorithms were tested on, publicly available online. They will be hosted on a cloud service provider, and set up such that anyone can upload an implementation to be measured on a test bench, as long as the implementation's source code integrates with the existing code and all tests terminate successfully. After all tests are complete, the uploaders can select whether or not to publish their source code and the performance of their implementation alongside those already hosted on the test bench.
+    With this in mind, these test benches are to be made, publicly available online. They will be hosted on a cloud service provider and set up such that anyone can upload an implementation to be measured on a test bench, as long as the implementation's source code integrates with the existing code and all tests terminate successfully. After all tests are complete, the uploaders can select whether to publish their source code and performance alongside those already published.
 
-    The majority of this work package is to be completed by a PhD student, under the supervision of the co-investigator for this period of the project. Note that we have not for this package mentioned any specific algorithms for the student to implement for this package. This is to offer the student a chance to lead on their own. Guidance will be offered, but the emphasis will be on \textit{them} choosing which algorithms they implement. The only guidance in this area is that in later years of the project, we will recommend that they implement some of the algorithms resulting from the work of WP1.
+    The majority of this work package is to be completed by a PhD student, under the supervision of the co-investigator for this period of the project. Note that we have not mentioned any specific algorithms for the student to implement. Guidance will be offered, but the emphasis will be on \textit{them} choosing which algorithms they implement. The only caveat is that in later years of the project, we will recommend that they implement some of the algorithms from the work of WP1.
 
     \subsection*{Work package 3 (WP3): Release of open-source tools}
 
@@ -155,15 +152,14 @@
         \item Branches or forks in established open-source projects with implementations from WP2 integrated into the applications.
     \end{enumerate}
 
-    The reason for distinguishing between this work package and WP2 is because of the different group targeted for each package. WP2 is aimed at the academic community, with emphasis on experimentation. This package is to cater for the industrial community, to show how these implementations can be used in the real world as opposed to merely within an experimental setting. Despite this difference in audience however, there is still a noticeable connection between this work package and WP2. Hence, this work will be primarily carried out by the PhD student again.
+    The reason for distinguishing between this work package and WP2 is because of the different group targeted for each package. WP2 is aimed at the academic community, with emphasis on experimentation. This package is to cater for the industrial community, to show how these implementations can be used in the real world as opposed to merely within an experimental setting. Despite this difference in audience, there is still a connection between this work and WP2, and will therefore be primarily carried out by the PhD student.
 
     The overall aim with this work package is to understand how useful the algorithms are when applied to real applications. Unlike WP1 and WP2, this cannot be easily measured, and thus determining our success is more challenging here. With this in mind, we aim to utilise industrial contacts for feedback about the algorithms, and rely on the judging of the EPSRC panel to decide the extent of which this work package has been successfully completed.
 
     \section{Academic Impact}
 
-    Work packages WP1 and WP2 target distinct academic beneficiaries. The beneficiaries of WP1 are academics within the algorithms and theory of computing community, whereas academic beneficiaries of WP2 are people within applied and experimental communities. The research proposed will provide both new knowledge and insight into the theoretical community, and open-source tools and experimental systems for applied research and real-life applications. This work will be disseminated through publications, conferences, workshops and open-source services available online.
-
-    {\footnotesize \bibliography{research_proposal}}
+    Work packages WP1 and WP2 target distinct academic beneficiaries: The beneficiaries of WP1 are the algorithms and theory of computing community, whereas academic beneficiaries of WP2 are people within applied and experimental communities. The research proposed will provide both new insight into the theoretical community, and open-source tools and experiment services for applied research and real-life applications. This work will be disseminated through publications, conferences, workshops, and open-source tools and web services.
+    \bibliography{research_proposal}
 
     \newpage
     \section{Budget}
