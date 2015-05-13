@@ -6,6 +6,7 @@ bioinformatics
 Breslauer
 CALDAM
 Chili
+config
 Corasick
 EPSRC
 Galil

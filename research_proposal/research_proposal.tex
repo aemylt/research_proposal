@@ -45,7 +45,7 @@
         \item \textbf{Distance matching:} How much does this text differ from the pattern?
     \end{itemize}
 
-    From here, the topic broadens out even further, giving way to a wide variety of applications. Parameterised matching for example has seen a number of applications in checking for duplicated code \cite{Baker:1993:TPP:167088.167115} and plagiarism in software \cite{Pandey:plagiarism}, checking source files for where the same code is used with merely a few variables difference. Dictionary matching has seen applications in problems ranging from bioinformatics -- matching against whole databases of genomes \cite{15713233} -- to intrusion detection -- matching the contents of data packets against collections of attack patterns \cite{1354682} \cite{website:snort-algo}. $k$-mismatch solutions have also been used in bioinformatics for aligning sequences with a reference genome \cite{Tennakoon10062012}.
+    From here, the topic broadens out even further, giving way to a wide variety of applications. Parameterised matching for example has seen a number of applications in checking for duplicated code \cite{Baker:1993:TPP:167088.167115} and plagiarism in software \cite{Pandey:plagiarism}, checking source files for where the same code is used with merely a few variables difference. Dictionary matching has seen applications in problems ranging from bioinformatics -- matching against whole databases of genomes \cite{15713233} -- to intrusion detection -- matching the contents of data packets against collections of attack patterns \cite{1354682}.\footnote{Also see \url{http://manual.snort.org/node16.html\#SECTION00313100000000000000}, under \texttt{config detection}} $k$-mismatch solutions have also been used in bioinformatics for aligning sequences with a reference genome \cite{Tennakoon10062012}.
 
     But there is a problem here. For many of these applications, the size of the data is orders of magnitude greater than the original solutions were devised for. Take dictionary matching as an example, for which the applications mentioned above use an algorithm devised in 1975 by Aho and Corasick \cite{Aho:1975:ESM:360825.360855}. When Aho and Corasick first proposed this algorithm, they did not intend for it to be used to match databases of genomes or attack patterns. Instead, they used it to match two dozen keywords in the titles of various academic papers. Even more pressing is that they explicitly state in their paper that for some applications the algorithm may be unappealing because of its space consumption.
 
@@ -161,7 +161,9 @@
 
     \section{Academic Impact}
 
-    \bibliography{research_proposal}
+    Work packages WP1 and WP2 target distinct academic beneficiaries. The beneficiaries of WP1 are academics within the algorithms and theory of computing community, whereas academic beneficiaries of WP2 are people within applied and experimental communities. The research proposed will provide both new knowledge and insight into the theoretical community, and open-source tools and experimental systems for applied research and real-life applications. This work will be disseminated through publications, conferences, workshops and open-source services available online.
+
+    {\footnotesize \bibliography{research_proposal}}
 
     \newpage
     \section{Budget}
