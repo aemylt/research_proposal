@@ -1,12 +1,15 @@
 --
+ACM-SIAM
 Aho
 Aho-Corasick
 al.'s
 bioinformatics
 Breslauer
+c3.8xlarge
 CALDAM
 Chili
 CI
+CI's
 config
 Corasick
 D1.1
@@ -27,6 +30,7 @@ lX
 Moylett
 parameterised
 Parameterised
+PDRA
 PhD
 Porat
 Q1
@@ -36,7 +40,6 @@ Q3
 Q4
 Q4.
 reproduceable
-resp.
 Sach
 setup
 setups
@@ -45,10 +48,12 @@ Sublinear
 uploaders
 wildcards
 workplan
+workplan.
 Workplan
 WP
 WP1
 WP1.
 WP2
+WP2.
 WP3
 WP3.
