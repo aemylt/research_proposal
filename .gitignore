@@ -10,3 +10,4 @@
 *.blg
 !WestGallagher2006.pdf
 !exact_size.pdf
+.~*
