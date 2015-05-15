@@ -27,7 +27,7 @@
 \DeclareMathOperator\polylog{polylog}
 
 \begin{document}
-    \section*{The Theory and Practice of Sublinear Space Pattern Matching}
+    \section*{Space efficient pattern matching in theory and practice}
 
     \section*{The proposers}
 
@@ -37,14 +37,14 @@
 
     \subsubsection*{Dr.\@ Dominic Moylett: Primary Investigator}
 
-    Dominic is a Lecturer in the Theory and Algorithms Group, specialising in space-efficient computation. He developed the first ever implementation of Breslauer and Galil's algorithm for sublinear space pattern matching, and implemented an earlier version of Clifford et al.'s algorithm for sublinear space dictionary matching. Prior to his Lectureship, he was a PhD student and Post-Doctoral Research Assistant at the University of Warwick under the supervision of Prof.\@ Graham Cormode, where he investigated the theory and practice of efficient, verifiable computation on large sets of data when delegated to a cloud service. His past publications on sublinear space algorithms include two papers at the ACM Symposium on the Theory of Computation (STOC) and four at the Annual Symposium on Combinatorial Pattern Matching (CPM). He has collaborated on multiple occasions with Dr.\@ Rapha\"{e}l Clifford at Dr.\@ Benjamin Sach from the University of Bristol Theory and Algorithms Group.
+    Dominic is a Lecturer in the Theory and Algorithms Group, specialising in space efficient computation. He developed the first ever implementation of Breslauer and Galil's algorithm for sublinear space pattern matching, and implemented an earlier version of Clifford et al.'s algorithm for sublinear space dictionary matching. Prior to his Lectureship, he was a PhD student and Post-Doctoral Research Assistant at the University of Warwick under the supervision of Prof.\@ Graham Cormode, where he investigated the theory and practice of efficient, verifiable computation on large sets of data when delegated to a cloud service. His past publications on space efficient algorithms include two papers at the ACM Symposium on the Theory of Computation (STOC) and four at the Annual Symposium on Combinatorial Pattern Matching (CPM). He has collaborated on multiple occasions with Dr.\@ Rapha\"{e}l Clifford at Dr.\@ Benjamin Sach from the University of Bristol Theory and Algorithms Group.
 
     \subsubsection*{Dr.\@ Charles Anderson: Co-Investigator}
 
     Charles is a Lecturer in the Theory and Algorithms Group, specialising in the theoretical and empirical analysis of algorithms. He developed the first ever implementation of Bille et al.'s algorithm for constructing sparse suffix trees in small space. During his PhD and Post-Doctoral Research Fellowship under the supervision of Dr.\@ Benjamin Sach, he worked on practical evaluations even further, investigating the benefits of high performance computing, contributing to the Multiple Precision Integers and Rationals (MPIR)\footnote{\url{https://github.com/wbhart/mpir}} library for parallel multiple-precision arithmetic, and releasing applications for problems ranging from bioinformatics to computer security which utilised new algorithms. He has three accepted papers at CPM and four at the IEEE International Conference on Data Engineering (ICDE). Since joining the University of Bristol, he has collaborated with Dr.\@ Dominic Moylett on several projects, focusing on the area of space efficient data processing.
 
     \newpage
-    \section*{The Theory and Practice of Sublinear Space Pattern Matching}
+    \section*{Space efficient pattern matching in theory and practice}
     \section*{Case for support}
 
     \section{Overview and motivation}
@@ -59,7 +59,7 @@
         \item \textbf{Distance matching:} How much does this text differ from the pattern?
     \end{itemize}
 
-    From here, the topic broadens out even further, giving way to a wide variety of applications. Parameterised matching for example has seen a number of applications in checking for duplicated code \cite{Baker:1993:TPP:167088.167115} and plagiarism in software \cite{Pandey:plagiarism}, checking source files for where the same code is used with merely a few variables difference. Dictionary matching has seen applications in problems ranging from bioinformatics -- matching against whole databases of genomes \cite{15713233} -- to intrusion detection -- matching the contents of data packets against collections of attack patterns \cite{1354682}.\footnote{Also see \url{http://manual.snort.org/node16.html\#SECTION00313100000000000000}, under \texttt{config detection}} $k$-mismatch solutions have also been used in bioinformatics for aligning sequences with a reference genome \cite{Tennakoon10062012}.
+    From here, the topic broadens out even further, giving way to a wide variety of applications. Parameterised matching for example has seen a number of applications in checking for duplicated code \cite{Baker:1993:TPP:167088.167115} and plagiarism in software \cite{Pandey:plagiarism}, checking source files for where the same code is used with merely a few variables difference. Dictionary matching has seen applications in problems ranging from bioinformatics -- matching against whole databases of genomes \cite{15713233} -- to intrusion detection -- matching the contents of data packets against collections of attack patterns \cite{1354682}. Dictionary matching techniques are even used in Snort,\footnote{See \url{http://manual.snort.org/node16.html\#SECTION00313100000000000000}, under \texttt{config detection}} the ``most widely deployed intrusion prevention system in the world.''\footnote{\url{https://www.snort.org/\#blog_interlude}} $k$-mismatch solutions have also been used in bioinformatics for aligning sequences with a reference genome \cite{Tennakoon10062012}.
 
     But there is a problem here. For many of these applications, the size of the data is orders of magnitude greater than the original solutions were devised for. Take dictionary matching as an example, for which the applications mentioned above use an algorithm devised in 1975 by Aho and Corasick \cite{Aho:1975:ESM:360825.360855}. When Aho and Corasick first proposed this algorithm, they did not intend for it to be used to match databases of genomes or attack patterns. Instead, they used it to match two dozen keywords in the titles of various academic papers. Even more pressing is that they explicitly state in their paper that for some applications the algorithm may be unappealing because of its space consumption.
 
@@ -68,8 +68,8 @@
     Since 2009 \cite{5438620}, a number of solutions have been discovered to prove that it is possible to solve a number of problems not only in less space than it takes to store the text, but less space than it takes to even store the pattern. Following this, the aims of our work following this research proposal is to develop on these results further, focusing on two areas in particular:
 
     \begin{itemize}
-        \item In the theory domain, we aim to improve upon current time and space bounds for the $k$-mismatch, parameterised matching and dictionary matching problems. We also seek to provide the first sublinear space solution for pattern matching with both multiple texts and multiple patterns.
-        \item In the applied domain, we aim to provide implementations of both algorithms developed following the theoretical work in this research proposal and previous algorithms which to our knowledge have never seen prior implementation. We seek to test these algorithms and compare their performance to benchmark solutions in real applications, and improve the real world performance by finding and optimising practical bottlenecks. Finally, we aim to release these implementations as practical tools to the Open-Source community under the GNU General Public License (GPL).
+        \item In the theory domain, we will to improve upon current time and space bounds for the $k$-mismatch, parameterised matching and dictionary matching problems. We also seek to provide the first sublinear space solution for pattern matching with both multiple texts and multiple patterns.
+        \item In the applied domain, we will to provide implementations of both algorithms developed following the theoretical work in this research proposal and previous algorithms which to our knowledge have never seen prior implementation. We seek to test these algorithms and compare their performance to benchmark solutions in real applications, and improve the real world performance by finding and optimising practical bottlenecks. Finally, we will to release these implementations as practical tools to the open source community under the GNU General Public License (GPL).
     \end{itemize}
 
     \section{Background}
@@ -84,9 +84,9 @@
 
     The second direction was to see what other problems could be solved in this area. Alongside their solution for classic pattern matching, Porat and Porat \cite{5438620} provided a solution to the $k$-mismatch problem in sublinear time and space. The next major breakthrough was in 2013, when Jalsenius, Porat and Sach \cite{JPS:2013} provided a solution to the parameterised matching problem in sublinear space, and introduced a space lower bound as large as the alphabet of the text and pattern. The most recent accomplishment in this direction has been by Clifford et al.\@ \cite{2015arXiv150406242C}, which provided a solution to the dictionary matching problem in log-log time per character and sublinear space to storing every pattern.
 
-    For our theoretical contributions, we will aim to provide results in both directions. We will investigate the gaps in time complexity between the sublinear space solutions and the best-known results. Under dictionary matching for example, the best known time complexity is constant time per character by using Aho-Corasick, while Clifford et al.'s sublinear space solution currently does not.
+    For our theoretical contributions, we will provide results in both directions. We will investigate the gaps in time complexity between the sublinear space solutions and the best-known results. Under dictionary matching for example, the best known time complexity is constant time per character by using Aho-Corasick, while Clifford et al.'s sublinear space solution currently does not.
 
-    In the practical world, work has been a lot less well-known. There are little to no currently published papers on implementing these algorithms, and thus we know almost nothing about how well these algorithms will perform in practice. This has been a common problem throughout theoretical computer science, and has thus resulted in a number of conferences based around applied and experimental work, such as Conference on Algorithms and Discrete Applied Mathematics (CALDAM)\footnote{\url{http://caldam.cse.iitk.ac.in/}} and the International Conference on Applied Algorithms (ICAA)\footnote{\url{https://sites.google.com/site/icaa2014/}}.
+    In the practical world, work has been a lot less well-known. There are little to no currently published papers on implementing these algorithms, and thus we know almost nothing about how well these algorithms will perform in practice. This has been a common problem throughout theoretical computer science, and has thus resulted in a number of conferences based around applied and experimental work, such as the Conference on Algorithms and Discrete Applied Mathematics (CALDAM).
 
     To offer contributions to the practical domain, we will implement classic solutions to pattern matching algorithms as benchmarks and provide implementations of these more recent solutions. We will complement these implementations with a number of test benches for the problems, similar to the experimental setup of the Pizza\&Chili Corpus\footnote{\url{http://pizzachili.dcc.uchile.cl/index.html}} for text indexing. To ensure our work is reproduceable, we will host online access to these experimental setups and allow visitors the ability to contribute their own solutions to the pattern matching problems. Using these test benches will also give us key insights into the practical bottlenecks of these algorithms, and give us ideas as to how we can reduce the size of the constants that result from this work. Finally, we will release these solutions publicly under the GPL, and propose integration of these solutions into projects such as Snort.
 
@@ -98,7 +98,7 @@
         \item To work on improvements to current bounds for a number of problems, including time bounds for dictionary matching, space bounds for parameterised matching, and time and space bounds for $k$-mismatch.
         \item To propose solutions to open problems. In particular, the only currently known sublinear space solution for the problem of matching multiple patterns against multiple texts involves running multiple independent instances of the Clifford et al.\@ algorithm for dictionary matching.
         \item To develop implementations of algorithms from both this project and other work, and develop test benches in order to profile and optimise bottlenecks when running these algorithms on real data.
-        \item To release these implementations to the open-source community under the GPL.
+        \item To release these implementations to the open source community under the GPL.
     \end{enumerate}
 
     \subsection{Deliverables}
@@ -106,7 +106,7 @@
     \begin{enumerate}
         \item New algorithms to improve time and space bounds for current problems.
         \item Publicly accessible test benches for analysis of various streaming solutions to different pattern matching problems.
-        \item Release of source code as libraries under the GPL, and proposals for integration into other open-source projects such as the Snort intrusion prevention system.
+        \item Release of source code as libraries under the GPL, and proposals for integration into other open source projects such as the Snort intrusion prevention system.
     \end{enumerate}
 
     \section{Work programme and methodology}
@@ -151,29 +151,46 @@
 
     The majority of this work package is to be completed by a PhD student, under the supervision of the co-investigator for this period of the project. Note that we have not mentioned any specific algorithms for the student to implement. Guidance will be offered, but the emphasis will be on \textit{them} choosing which algorithms they implement. The only caveat is that in later years of the project, we will recommend that they implement some of the algorithms from the work of WP1.
 
-    \subsection*{Work package 3 (WP3): Release of open-source tools}
+    \subsection*{Work package 3 (WP3): Release of open source tools}
 
     Research leader: Dominic Moylett
 
     Principle research objective:
     \begin{quote}
-        To release the implementations from WP2 under the GPL and provide them as contributions into other open-source projects.
+        To release the implementations from WP2 under the GPL and provide them as contributions into other open source projects.
     \end{quote}
 
     Principle deliverables:
     \begin{enumerate}
-        \item Open-source releases of the implementations from the previous work package.
-        \item Branches or forks in established open-source projects with implementations from WP2 integrated into the applications.
+        \item Open source releases of the implementations from the previous work package.
+        \item Branches or forks in established open source projects with implementations from WP2 integrated into the applications.
     \end{enumerate}
 
-    The reason for distinguishing between this work package and WP2 is because of the different group targeted for each package. WP2 is aimed at the academic community, with emphasis on experimentation. This package is to cater for the industrial community, to show how these implementations can be used in the real world as opposed to merely within an experimental setting. Despite this difference in audience, there is still a connection between this work and WP2, and will therefore be primarily carried out by the PhD student.
+    The reason for distinguishing between this work package and WP2 is because of the different group targeted for each package. WP2 is targeted at the academic community, with emphasis on experimentation. This package is to cater for the industrial community, to show how these implementations can be used in the real world as opposed to merely within an experimental setting. Despite this difference in audience, there is still a connection between this work and WP2, and will therefore be primarily carried out by the PhD student.
 
-    The overall aim with this work package is to understand how useful the algorithms are when applied to real applications. Unlike WP1 and WP2, this cannot be easily measured, and thus determining our success is more challenging here. With this in mind, we aim to utilise industrial contacts for feedback about the algorithms, and rely on the judging of the EPSRC panel to decide the extent of which this work package has been successfully completed.
+    The overall aim with this work package is to understand how useful the algorithms are when applied to real applications. Unlike WP1 and WP2, this cannot be easily measured, and thus determining our success is more challenging here. With this in mind, we will utilise industrial contacts for feedback about the algorithms, and rely on the judging of the EPSRC panel to decide the extent of which this work package has been successfully completed.
 
-    \section{Academic Impact}
+    \section{Academic impact}
 
-    Work packages WP1 and WP2 target distinct academic beneficiaries: The beneficiaries of WP1 are the algorithms and theory of computing community, whereas academic beneficiaries of WP2 are people within applied and experimental communities. The research proposed will provide both new insight into the theoretical community, and open-source tools and experiment services for applied research and real-life applications. Academic work from WP1 and WP2 will be disseminated through publications and conferences, and the services themselves will be freely available online and supported with workshops.
+    Work packages WP1 and WP2 target distinct academic beneficiaries: The beneficiaries of WP1 are the algorithms and theory of computing community, whereas academic beneficiaries of WP2 are people within applied and experimental communities. The research proposed will provide both new insight into the theoretical community, and open source tools and experiment services for applied research and real-life applications. Academic work from WP1 and WP2 will be disseminated through publications and conferences, and the services themselves will be freely available online and supported with workshops.
     \bibliography{research_proposal}
+
+    \newpage
+    \section{Impact statement}
+
+    As stated in the Academic impact section, we expect WP1 and WP2 to target academic beneficiaries. WP3 on the other hand is aimed to have an impact primarily in the industrial and economic sectors. Our implementations of these space efficient pattern matching algorithms will be released as open source libraries for anyone to freely use and contribute to, thus allowing for open innovation and improved performance from open source and industrial products. We will also show how people can integrate our libraries into their projects by making our own contributions to already existing open source projects which rely on pattern matching algorithms. One example where there is already interest in the Theory and Algorithms group is plans to add our implementation of the Clifford et al.\@ algorithm to the Snort intrusion prevention system, as an alternative to the dictionary matching algorithms currently available on the system.
+
+    In order for this work to be beneficial, we need to address two challenges. Firstly, we need to know what other properties do the industrial community care about when addressing space efficiency and what our research can do to best address their needs during execution. And secondly, we need to know how are we going to best share this knowledge at the initial moment of release. We will face these challenges by hosting three workshops for the project with academics and industrial people from groups such as the International Society for Computational Biology (ISCB) and the European Data Science Academy (EDSA) to represent the bioinformatics and data science communities respectively:
+
+    \begin{itemize}
+        \item The first, to be held at the start of the project, will focus on tackling the first challenge. In it, we will establish conversations with these groups to understand their needs and to how this research can benefit them.
+        \item The second, to be held 2.5 years into the project, will provide the results of our empirical analysis to people outside of the academic community. The opinions of the attendees will be used to gauge continued interest in our implementations before attempting to integrate the libraries into open source projects. During this workshop, we will also demonstrate to others how they can contribute to the experiments themselves by submitting their own pattern matching solutions to be analysed and compared.
+        \item The final, to be held at the end of the project, will focus around demonstrating our open source libraries and showing how people can integrate them into their own products and provide their own contributions to the libraries. Discussions at this workshop will be used to assist in judging the success of WP3.
+    \end{itemize}
+
+    Alongside the release and integration of our libraries into open source projects, we provide an impact within the wider R\&D community through the release and accessibility of our test benches as part of WP2. Often pattern matching algorithms are not useful in real world applications as the academics who devise them only focus on the worst-case scenario once the data becomes sufficiently large. We hope to alleviate this by providing services that can test implementations automatically and uniformly. There are few services which currently offer this ability for pattern matching; one example for compressed text indexing is the Pizza\&Chili Corpus.
+
+    If our results from WP2 and WP3 are viewed positively, then we would expect to see a growth in the development and release of libraries for pattern matching. More pattern matching libraries available will offer more choices to external disciplines and industry, who can pick the option that best fits their needs. Even better, the encouragement of open source libraries can also be expected to result in industrial disciplines contributing back changes to the libraries that made the tools more suitable for them. Long after this project draws to a close, this mutual feedback might be the greatest impact we provide.
 
     \newpage
     \section{Budget}
@@ -199,7 +216,7 @@
 
     \subsection{Staff}
 
-    The most significant costs are the time of the PI, PDRA and PhD student, who will work close to full time on this project. As the CI's work is focused around the supervision of the PhD student during WP2, they will only contribute 25\% of their time.
+    The most significant costs are the time of the PI, PDRA and PhD student, who will work close to full time on this project. As the CI's work is focused around the supervision of the PhD student -- particularly during the execution of WP2 -- they will contribute 25\% of their time.
 
     \subsection{Resources}
 
@@ -215,10 +232,7 @@
 
     \subsection{Workshops}
 
-    Three workshops will be arranged as stated at the end of notes for the workplan. To cover the cost of catering for these events, \textsterling600 has been allocated in the budget.
-
-    \newpage
-    \section{Impact statement}
+    Three workshops will be arranged as stated in order to promote our results to the wider community. To cover the cost of catering, \textsterling600 has been budgeted for each workshop.
 
     \newpage
     \begin{landscape}
@@ -235,8 +249,8 @@
         D2.1 & Establish academic connections & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & & & & & & & & & & & & \\\hline
         D2.1 & Implement algorithms & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & & & & & & \\\hline
         D2.2 & Develop experimental setups & & & & & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & & & & \\\hline
-        D3.1 & Establish industrial connections & & & & & & & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & & & & & \\\hline
-        D3.1 & Adjust implementations for open-source projects & & & & & & & & & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & \\\hline
+        D3.1 & Establish industrial connections & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & & & & & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & & & & & \\\hline
+        D3.1 & Adjust implementations for open source projects & & & & & & & & & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & \\\hline
     \end{tabularx}
 
     \subsection*{Notes for the workplan}
@@ -245,11 +259,11 @@
 
     We expect to have hired both the PDRA and the PhD student within the first six months of this project, and that both will have commenced work in 2016 Q1. The work of hiring these two is part of establishing academic connections, during which time we will also be seeking other academics to connect with.
 
-    With both academic and industrial connections, we expect further networking and communication to occur after the periods marked in the workplan for establishing connections, due to the continuous nature of this task. This has been omitted from the above diagram.
+    With both academic and industrial connections, we expect further networking and communication to occur after the periods marked in the workplan for establishing connections, due to the continuous nature of this task. We also expect further work in WP2 for continued maintenance of the test benches. These tasks have been omitted from the workplan.
 
     2018 Q4 has no work on WP2 and WP3 due to the expectation of the PhD student to use this time to write up their results in a thesis. Work on WP1 will continue as before.
 
-    For key release dates, we expect at least three accepted papers by the end of 2016 Q4: two for WP1, one for WP2. We also expect at least one more paper for WP2 by the end of 2017 Q4, one for WP3 by the end of 2018 Q3, and at least two for WP1 by the end of 2018 Q4. Three workshops will be arranged: One at the start of 2015 Q3 to help establish academic and industrial relations, one primarily for demonstrating the services from WP2 at the end of 2017 Q4, and one at the end of 2018 Q4 primarily for demonstrating the tools from WP3.
+    For key release dates, we expect at least three accepted papers by the end of 2016 Q4: two for WP1, one for WP2. We also expect at least one more paper for WP2 by the end of 2017 Q4, one for WP3 by the end of 2018 Q3 at a conference such as the Free Software and Open Source Symposium (FSOSS), and at least two for WP1 by the end of 2018 Q4. Three workshops will be arranged: One during 2015 Q4 to help establish academic and industrial relations, one at the end of 2017 Q4 primarily for demonstrating the services from WP2, and one at the end of 2018 Q4 primarily for demonstrating the tools from WP3.
 
     \end{landscape}
 
